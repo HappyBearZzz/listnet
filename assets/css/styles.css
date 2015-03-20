@@ -1,0 +1,240 @@
+.navbar-fixed-bottom{
+	height: 16px !important;
+	min-height: 10px !important;
+	background: rgba(0,0,0,0.6) !important;
+}
+
+.navbar-fixed-bottom p{
+	font-size: 13px;
+	line-height: 13px;
+	margin-top: 1px;
+	margin-right: 4px;
+	text-align: center;
+	color: #333;
+}
+
+.navbar-fixed-bottom p a{
+	color: #EEE;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.navbar-fixed-bottom p a:hover{
+	color: #333;
+}
+
+i.nav-icon{
+	display: block;
+	text-align: center;
+	margin-top: -5px;
+	margin-bottom: 5px;
+}
+
+li a{
+	display: block;
+	text-transform: uppercase;
+}
+
+i.nav-icon {
+	display: block;
+	text-transform: uppercase;
+}
+
+nav.navbar.navbar-fixed-top.navbar-inverse ul.nav.navbar-nav li.highlight a{
+	background-color: rgb(88, 153, 0);
+	color: #DDD;
+	display: block;
+}
+
+nav.navbar.navbar-fixed-top.navbar-inverse ul.nav.navbar-nav li.highlight a:hover{
+	background-color: rgba(88, 153, 0, 0.7);
+	color: #EEE;
+}
+
+i.top-left{
+	position: absolute;
+	top: 8px;
+	left: 10px;
+	z-index: 1000;
+	font-size: 18px;
+	font-weight: lighter;
+	cursor: pointer;
+}
+
+i.top-left:hover{
+	color: #555;
+}
+
+section.controls{
+	display: block;
+	width: 250px;
+	background: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	color: #FFF;
+	top: 70px;
+	right: 0px;
+	padding: 10px;
+	overflow: hidden;
+	height: auto;
+	 -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+section.controls h4{
+	font-family: 'Lato', sans-serif;
+	font-size: 18px;
+	font-weight: 100;
+	margin-top: 0px;
+	text-align: right;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+section.controls h6{
+	margin-top: -8px;
+	font-family: 'Lato', sans-serif;
+	font-size: 13px;
+	font-weight: 100;
+	text-align: right;
+	margin-bottom: 5px;
+	color: rgb(88, 153, 0);
+}
+
+input[type="checkbox"]{
+	display: none;
+}
+
+input[type="checkbox"] + label{
+	font-size: 16px;
+	font-weight: lighter;
+	vertical-align: center;
+	margin-top: 5px;	
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label span.check{
+	cursor: pointer;
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	-webkit-background-size: 240px 24px;
+	background-size: 240px 24px;
+	background: url('http://www.listnet.ca/Plugin/icheck-green/green.png') no-repeat;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background-position: 0 0;
+}
+
+input[type="checkbox"]:checked + label span.check{
+	background-position: -48px 0;
+
+}
+
+section.range-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 35px;
+}
+
+div.range-holder{
+	clear: both;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	margin-bottom: 5px;
+}
+
+div.range-holder p{
+	font-family: 'Lato', sans-serif;
+	color: rgb(88, 153, 0);
+	font-weight: bolder;
+
+}
+
+section.range-slider input {
+    pointer-events: none;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    width: 100%;
+    outline: none;
+    height: 18px;
+}
+
+input.endpoint{
+	margin-top: -18px;
+	width: 32px;
+	background: none;
+	border: none;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+
+section.range-slider input::-webkit-slider-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+}
+
+section.range-slider input::-moz-range-thumb {
+    pointer-events: all;
+    position: relative;
+    z-index: 10;
+    -moz-appearance: none;
+    background: linear-gradient(to bottom, #ededed 0%, #dedede 100%);
+    width: 11px;
+}
+
+section.range-slider input::-moz-range-track {
+    position: relative;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .15);
+    border: 0;
+}
+
+section.range-slider input:last-of-type::-moz-range-track {
+    -moz-appearance: none;
+    background: none transparent;
+    border: 0;
+}
+
+ul.from-to {
+    display: block;
+    list-style-type: none;
+    margin-top: 10px;
+    font-family: Arial, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+ul.from-to li {
+    margin-bottom: 1px;
+}
+
+ul.from-to li label {
+    background-color: rgba(0, 0, 0, .1);
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    width: 60px;
+    padding: 0 10px;
+    float: left;
+    font-size: 9px;
+    color: rgba(0, 0, 0, .25);
+    text-transform: uppercase;
+}
+
+ul.from-to li input {
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    outline: none;
+}

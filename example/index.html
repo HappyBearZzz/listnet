@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>ngRangeSlider</title>
+    <!-- Application! -->
+
+    <!-- Stylesheets! -->
+    <link rel="stylesheet" type="text/css" href="css/Default.css" />
+
+</head>
+<body ng-app="rangeApp" ng-controller="IndexController">
+
+    <section data-range-slider class="range-slider" step="1000" ng-model="range" min="0" max="max"></section>
+
+    <code>Current model: {{range}}</code>
+
+    <ul class="from-to">
+        <li><label>From:</label><input type="number" ng-model="range.from" /></li>
+        <li><label>To:</label><input type="number" ng-model="range.to" /></li>
+    </ul>
+
+    
+    <!-- Include Underscore.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script> 
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Include Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="js/ng-range-slider.min.js"></script>
+    <script type="text/javascript" src="js/Default.js"></script>
+
+</body>
+</html>

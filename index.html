@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html ng-app="rangeApp">
+<head>
+	<title>ListNet Property Marketplace</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+
+	<link href="assets/css/styles.css" rel="stylesheet">
+	
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNt6PO6Pow1WbJhZ4SnAhWRpMVMnWYBVM">
+    </script>
+    
+    <script type="text/javascript">
+      function initialize() {
+     	var mapOptions = {
+        	center: { lat: -34.397, lng: 150.644},
+        	zoom: 13,
+        	mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+				position: google.maps.ControlPosition.CENTER_BOTTOM
+			},
+			panControl: true,
+			panControlOptions: {
+				position: google.maps.ControlPosition.LEFT_BOTTOM
+			},
+			zoomControl: true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.LARGE,
+				position: google.maps.ControlPosition.LEFT_CENTER
+			}
+        };
+
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      	if (navigator.geolocation) {
+		     navigator.geolocation.getCurrentPosition(function (position) {
+		         initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		         map.setCenter(initialLocation);
+		     });
+		 }
+      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <link rel="icon" href="http://www.listnet.ca/Content/images/favicon.ico" />
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+	
+	<div id="map-canvas"></div>
+	
+	<header>
+		<nav class="navbar navbar-fixed-top navbar-inverse">
+			<a href="#" class="navbar-brand"><img src="https://listnet.ca/Content/images/logo.png" alt="ListNet.ca" /></a>
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a href="#">
+						<i class="glyphicon glyphicon-map-marker nav-icon"></i>
+						Map
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="nav-icon glyphicon glyphicon-th"></i>
+						Grid
+					</a>
+				</li>
+				<li class="highlight">
+					<a class="highlight" href="#"><i class="glyphicon glyphicon-map-marker nav-icon"></i>List a Property Free</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="glyphicon glyphicon-briefcase nav-icon"></i>
+						Find a Local Pro
+					</a>
+					<!-- 
+					<div class="form-group form-search">
+						<input id="search-nav" type="search" placeholder="Find a Local Pro" class="form-control">
+						<label for="search-nav">
+							<span class="form-icon">
+								<i class="glyphicon glyphicon-search"></i>
+							</span>
+						</label>
+					</div> -->
+				</li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#">
+						<i class="nav-icon glyphicon glyphicon-log-in"></i>
+						Login
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="nav-icon glyphicon glyphicon-user"></i>
+						Sign Up
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<section ng-controller="IndexController" class="controls">
+		<i class="top-left glyphicon glyphicon-collapse-up" ng-click="alterControls()"></i>
+		<h4>Current Search Filters</h4>
+		<h6>6 Results</h6>
+		<div>
+			<p class="left">
+				<input type="checkbox" name="type" id="sale" checked="checked"><label for="sale"><span class="check"></span> For Sale</label></p>
+			<p class="right">
+				<input type="checkbox" name="type" id="rent" checked="checked"><label for="rent"><span class="check"></span> For Rent</label></p>
+		</div>
+		
+		<div class='control-row'>
+			<p class="left">
+				<input type="checkbox" name="type" id="house" checked="checked"><label for="house"><span class="check"></span> House</label>
+			</p>
+			<p class="right">
+				<input type="checkbox" name="type" id="condo" checked="checked"><label for="condo"><span class="check"></span> Condo</label>
+			</p>
+		</div>
+		
+		<div class="range-holder clearfix" ng-controller="IndexController">
+			<p>Price: </p>
+		 	<section data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="max"></section>
+			<input class="endpoint left" type="text" disabled="disabled" value="${{range.from}}">
+			<input class="endpoint right" type="text" disabled="disabled" value="${{range.to}}">
+		</div>
+		
+
+		<div class="range-holder clearfix" ng-controller="IndexController">
+			<p>Beds: </p>
+			<section data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="5"></section>
+			<input class="endpoint left" type="text" disabled="disabled" value="{{range.from}}">
+			<input class="endpoint right" type="text" disabled="disabled" value="{{range.to}}">
+		</div>
+		
+		<div class="range-holder clearfix" ng-controller="IndexController">
+			<p>Baths: </p>
+			<section data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="5"></section>
+			<input class="endpoint left" type="text" disabled="disabled" value="{{range.from}}">
+			<input class="endpoint right" type="text" disabled="disabled" value="{{range.to}}">
+		</div>
+
+		<div class="range-holder clearfix" ng-controller="IndexController">
+			<p>Age: </p>
+			<section data-range-slider class="range-slider" step="1" ng-model="range" min="0" max="50"></section>
+			<input class="endpoint left" type="text" disabled="disabled" value="{{range.from}}">
+			<input class="endpoint right" type="text" disabled="disabled" value="{{range.to}}">
+		</div>
+
+		<p>Sub-Types: <select name="subtypes"></select></p>
+	</section>
+	
+	<footer>
+		<nav class="navbar navbar-fixed-bottom navbar-inverse">
+			<p>
+			<a href="#">About</a>
+			<a href="#">Terms of Use</a>
+			<a href="#">Contact</a>
+			<a href="#">Privacy Policy</a>
+			</p>
+		</nav>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Include Underscore.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script> 
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<!-- Include Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="app/mainApp.js"></script>
+	<script src="app/controls/ngRangeSlider.js"></script>
+</body>
+</html>
